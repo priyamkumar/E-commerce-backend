@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 
 dotenv.config();
+console.log(process.env)
 
 const PORT = process.env.PORT || 5000;
 connectDb();
@@ -31,7 +32,6 @@ app.use("/api/v1/user", require("./routes/userRoutes"));
 app.use("/api/v1/product", require("./routes/productRoutes"));
 app.use("/api/v1/orders", require("./routes/orderRoutes"));
 app.use("/api/v1/payment", require("./routes/paymentRoutes"));
-
 app.use(errorHandler);
 
 app.listen(PORT, () => {
