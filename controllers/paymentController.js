@@ -1,9 +1,7 @@
 const asyncHandler = require("express-async-handler");
 
-const stripe = process.env.STRIPE_API_KEY 
-  ? require('stripe')(process.env.STRIPE_API_KEY)
-  : console.error('Missing Stripe API key');
-  
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
 const processPayment = asyncHandler(async (req, res) => {
   const myPayment = await stripe.paymentIntents.create({
     amount: req.body.amount,
