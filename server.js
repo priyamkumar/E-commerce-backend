@@ -8,10 +8,11 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 
 dotenv.config();
-console.log(process.env)
-
 const PORT = process.env.PORT || 5000;
 connectDb();
+
+console.log('Environment variables check:');
+console.log('STRIPE_API_KEY exists:', !!process.env.STRIPE_API_KEY);
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
