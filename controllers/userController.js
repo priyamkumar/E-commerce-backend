@@ -66,6 +66,8 @@ const logoutUser = asyncHandler(async (req, res) => {
   res
     .cookie("token", "", {
       expires: new Date(Date.now()),
+      sameSite: "none",
+      secure: true,
     })
     .json({
       success: true,
@@ -210,7 +212,7 @@ const updateUserRole = asyncHandler(async (req, res) => {
     role: req.body.role,
   };
   let user = await User.findById(req.params.id);
-  
+
   if (!user) {
     res.status(404);
     throw new Error("User does not exist.");
