@@ -4,6 +4,7 @@ const sendToken = (user, statusCode, res) => {
     const options = {
         httpOnly: true,
         maxAge: 15 * 60 * 1000,
+        sameSite: "lax",
     };
 
     res.status(statusCode).cookie("token", token, options).json({
