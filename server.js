@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL, "http://localhost:5173", "https://72b4-122-173-29-236.ngrok-free.app"],
+    origin: [process.env.FRONTEND_URL, "http://localhost:5173", "https://cbb1-122-173-29-236.ngrok-free.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
